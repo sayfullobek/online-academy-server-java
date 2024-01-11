@@ -5,9 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class OnlineVideoAcademyServerJavaApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(OnlineVideoAcademyServerJavaApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(OnlineVideoAcademyServerJavaApplication.class, args);
+    }
 }
