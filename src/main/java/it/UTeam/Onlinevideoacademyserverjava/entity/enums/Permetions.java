@@ -1,8 +1,7 @@
-package it.UTeam.Onlinevideoacademyserverjava.entity.templates;
+package it.UTeam.Onlinevideoacademyserverjava.entity.enums;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 
 public enum Permetions {
     AWARE("/api/v1/auth/aware/**", Arrays.asList(RoleName.SUPER_ADMIN, RoleName.MANAGER, RoleName.ADMIN));

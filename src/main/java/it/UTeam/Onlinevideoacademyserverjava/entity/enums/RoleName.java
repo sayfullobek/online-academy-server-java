@@ -1,4 +1,4 @@
-package it.UTeam.Onlinevideoacademyserverjava.entity.templates;
+package it.UTeam.Onlinevideoacademyserverjava.entity.enums;
 
 public enum RoleName {
     SUPER_ADMIN,
