@@ -15,5 +15,6 @@ public enum Permetions {
     }
 
     Permetions() {
+
     }
 }
