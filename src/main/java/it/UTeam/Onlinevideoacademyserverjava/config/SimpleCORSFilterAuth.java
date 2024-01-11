@@ -2,7 +2,6 @@ package it.UTeam.Onlinevideoacademyserverjava.config;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.filters.CorsFilter;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -18,17 +17,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import io.jsonwebtoken.Jwts;
 
 
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @RequiredArgsConstructor
 public class SimpleCORSFilterAuth extends CorsFilter {
-
-    @Value("${app.jwtSecretKey}")
-    private String key;
-
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) {
@@ -40,7 +34,6 @@ public class SimpleCORSFilterAuth extends CorsFilter {
         response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Methods,Access-Control-Allow-Origin,x-requested-with, authorization, Content-Type, Authorization, credential, X-XSRF-TOKEN");
 
         String authorization = response.getHeader("Authorization");
-        String userId = getUserIdToken(authorization);
 
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);
@@ -56,11 +49,4 @@ public class SimpleCORSFilterAuth extends CorsFilter {
         }
     }
 
-    public String getUserIdToken(String token) {
-        return Jwts.parser()
-                .setSigningKey(key)
-                .parseClaimsJws(token)
-                .getBody()
-                .getSubject();
-    }
 }
